@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+	<h3>profile</h3>
+	<form th:action="@{/search}" method="POST">
+		<table>
+			<tr>
+				<input type="text" name = "nickname" th:value="${userProfile.nickname}" />
+			</tr>
+		</table>
+	</form>
+	<a th:href="@{/index}">index</a>
+</body>
+</html>

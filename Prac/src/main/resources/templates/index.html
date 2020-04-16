@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+	<h3>index</h3>
+	<p th:if="${param.error}">Error!</p>
+	<form th:action="@{/search}" method="POST">
+		<table>
+			<tr>
+				<span th:text="${userProfile.userId}" />
+			</tr>
+		</table>
+	</form>
+	<a href="@{'/profile/' + ${userProfile.userId}}">Profile</a>
+</body>
+</html>
