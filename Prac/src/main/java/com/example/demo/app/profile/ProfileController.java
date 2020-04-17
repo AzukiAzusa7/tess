@@ -30,13 +30,15 @@ public class ProfileController{
 		return "profile/profile";
 	}
 	@RequestMapping(value = "profile/{userId}/update",method=RequestMethod.POST)
-	public String update(@PathVariable String userId,@Validated @ModelAttribute UserUpdateRequest userUpdateRequest,BindingResult result,Model model){
+//	public String update(@PathVariable String userId,@Validated @ModelAttribute UserUpdateRequest userUpdateRequest,BindingResult result,Model model){
+	public String update(@PathVariable String userId,@Validated @ModelAttribute User user,BindingResult result,Model model){
 		if(result.hasErrors()){
 			List<String> errorList = result.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
 			model.addAttribute("validationError",errorList);
 			return "profile/{userId}";
 		}
-		userService.update(userUpdateRequest);
+//		userService.update(userUpdateRequest);
+		userService.update(user);
 		return "redirect:/profile/{userId}";
 	}
 }

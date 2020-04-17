@@ -16,17 +16,20 @@ public class UserService{
 	public User findById(String userId){
 		return userRepository.findById(userId).get();
 	}
-	//���[�U�[���X�V
-	public void update(UserUpdateRequest userUpdateRequest){
-		UserProfile userProfile = findById(userUpdateRequest.getUserId());
-		userProfile.setNickName(userUpdateRequest.getNickName());
-		userRepository.save(userProfile);
+//	public void update(UserUpdateRequest userUpdateRequest){
+	public void update(User user){
+//		UserProfile userProfile = findById(userUpdateRequest.getUserId()).getUserProfile();
+//		UserProfile userProfile = user.getUserProfile();
+//		userProfile.setNickName(userProfile.getNickName());
+//		userRepository.save(userProfile);
+		userRepository.save(user);
 	}
-	public void save(UserRequest userRequest){
-		User user = new User();
-		user.setUserId(userRequest.getUserId);
-		user.setPassword(userRequest.serUserPassword);
-		user.serRoleName("USER");
+//	public void save(UserRequest userRequest){
+	public void save(User user){
+//		User user = new User();
+//		user.setUserId(userRequest.getUserId);
+//		user.setPassword(userRequest.setUserPassword);
+//		user.setRoleName("USER");
 		userRepository.save(user);
 	}
 }

@@ -22,11 +22,13 @@ public class SignupController{
 		return "signup/signup";
 	}
 	@PostMapping("signup")
-	public String create(@Validated @ModelAttribute UserRequest userRequest,BindingResult result,Model model){
+//	public String create(@Validated @ModelAttribute UserRequest userRequest,BindingResult result,Model model){
+	public String create(User user,BindingResult result,Model model){
 		if(result.hasErrors()){
 			return "signup";
 		}
-		userService.save(userRequest);
+//		userService.save(userRequest);
+		userService.save(user);
 		return "redirect:/index";
 	}
 }

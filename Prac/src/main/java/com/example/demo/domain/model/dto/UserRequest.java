@@ -11,7 +11,7 @@ import lombok.Data;
 public class UserRequest implements Serializable{
 	@NotEmpty(message ="empty")
 	@Size(max = 100,message = "100�ȉ�")
-	private String username;
+	private String userId;
 	@Size(max = 255,message ="255�ȉ�")
 	private String nickname;
 }
