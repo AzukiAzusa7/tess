@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/js/**", "/css/**").permitAll().antMatchers("/signup").permitAll().antMatchers("/**").authenticated().and()
 				.formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("username")
-				.passwordParameter("password").defaultSuccessUrl("/index", true).failureUrl("/login?error=true")
+				.passwordParameter("password").defaultSuccessUrl("/rooms", true).failureUrl("/login?error=true")
 				.permitAll();
 	}
 	@Override

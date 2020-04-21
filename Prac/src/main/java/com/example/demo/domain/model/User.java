@@ -18,9 +18,12 @@ import lombok.ToString;
 @Data
 @Table(name = "user")
 public class User{
-	@OneToOne(mappedBy="user",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="user_id",cascade = CascadeType.ALL)
 	@ToString.Exclude
 	private UserProfile userProfile;
+	
+	@OneToMany(mappedBy = "user")
+	private List<RoomUser> roomUsers;
 
 	@Id
 	@Column(name = "id")
