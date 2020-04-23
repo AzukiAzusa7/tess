@@ -11,14 +11,15 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "userprofile")
-public class UserProfile{
-	@OneToOne
+@Table(name = "userfriends")
+public class UserFriends{
+	@ManyToOne
 	@JoinColumn(name="user_id")
-	@MapsId
 	private User user;
-	@Column(name = "user_id")
-	private String userId;
-	@Column(name = "nickname")
-	private String nickname;
+
+	@OneToMany(mappedBy = "user")
+	private List<User> friends;
+	
+	@Column(name = "friend_id")
+	private String friend_id;
 }

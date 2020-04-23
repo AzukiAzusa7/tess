@@ -1,5 +1,6 @@
 package com.example.demo.domain.service;
 
+//TODO ‚±‚ÌƒNƒ‰ƒX‚ª³í‚É“®ì‚·‚é‚©
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User{
 	private String userId;
 	public LoginUserDetails(User user){

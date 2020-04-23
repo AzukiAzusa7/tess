@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+	<h3>index</h3>
+	<form th:action="@{'/rooms/' + ${user.userid} + '/save'}" method="POST">
+		<table>
+			<h3 th:text = "${user.userProfile.nickname}"></h3>
+			roomname:
+			<input type="text" name = "roomname" />
+			<ul>
+				<li th:each="element : ${friends}"><input type ="checkbox" name="friendid" value="${element.userid}">[[${element.userProfile.nickname}]]</li>
+			</ul>
+			<input type ="submit" value ="ルームを作成">
+		</table>
+	</form>
+	<a href="@{'/rooms/' + ${user.userid}}">index</a>
+</body>
+</html>

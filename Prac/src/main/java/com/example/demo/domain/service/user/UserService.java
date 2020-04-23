@@ -12,17 +12,31 @@ import com.example.demo.domain.repository.UserRepository;
 public class UserService{
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private UserProfileRepository userProfileRepository;
+	@Autorwired
+	private UserFriendsRepository userFriendsRepository;
 	//
 	public User findById(String userId){
 		return userRepository.findById(userId).get();
 	}
+
+	public List<User> findAll(String userId){
+		return userFriendsRepository.findAll(userId);
+	}
 //	public void update(UserUpdateRequest userUpdateRequest){
-	public void update(User user){
+//	public void update(User user){
 //		UserProfile userProfile = findById(userUpdateRequest.getUserId()).getUserProfile();
 //		UserProfile userProfile = user.getUserProfile();
 //		userProfile.setNickName(userProfile.getNickName());
 //		userRepository.save(userProfile);
-		userRepository.save(user);
+//		userRepository.save(user);
+	//TODO メソッドが正常に動作するか確認
+	public void udpdate(ProfileForm profileForm){
+		UserProfile userProfile = new UserProfile();
+		userProfile.setUserId(profileForm.getUseId());
+		userProfile.setNickName(profileForm.getNickname());
+		userProfileReposiroty.save(userProfile);
 	}
 //	public void save(UserRequest userRequest){
 	public void save(User user){

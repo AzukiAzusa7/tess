@@ -8,8 +8,11 @@ public class RoomUser{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	private User user;
 	@ManyToOne
+	@JoinColumn(name="room_id")
 	private Room room;
+	
 
 }

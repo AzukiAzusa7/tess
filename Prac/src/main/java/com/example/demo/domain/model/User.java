@@ -24,6 +24,13 @@ public class User{
 	
 	@OneToMany(mappedBy = "user")
 	private List<RoomUser> roomUsers;
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserFriends> userFriends;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Id
 	@Column(name = "id")

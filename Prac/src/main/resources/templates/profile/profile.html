@@ -6,13 +6,15 @@
 </head>
 <body>
 	<h3>profile</h3>
-	<form th:action="@{/search}" method="POST">
+	<form th:action="@{'/profile' + ${userProfile.user.userid} + '/update'}" th:object="${profileForm}" method="POST">
 		<table>
 			<tr>
-				<input type="text" name = "nickname" th:value="${userProfile.nickname}" />
+				<input type="hidden" th:field="*{userid}" th:value="${userProfile.user.userId}" />
+				<input type="text" th:field= "*{nickname}" th:value="${userProfile.nickname}" />
 			</tr>
+			<input type ="submit" value ="プロフィール更新">
 		</table>
 	</form>
-	<a th:href="@{/index}">index</a>
+	<a href="@{'/rooms/' + ${user.userid}}">index</a>
 </body>
 </html>

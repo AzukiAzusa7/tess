@@ -29,6 +29,6 @@ public class SignupController{
 		}
 //		userService.save(userRequest);
 		userService.save(user);
-		return "redirect:/index";
+		return "rooms";
 	}
 }

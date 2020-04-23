@@ -6,14 +6,16 @@
 </head>
 <body>
 	<h3>index</h3>
-	<p th:if="${param.error}">Error!</p>
-	<form th:action="@{/search}" method="POST">
-		<table>
-			<tr>
-				<span th:text="${userProfile.userId}" />
-			</tr>
-		</table>
+	<form th:action="@{'rooms/search/'+${userProfile.user.userid}}" th:object="${searchForm}" method="post">
+		<input type = "text" th:field="*{roomname}">
+		<input type ="submit" value ="検索">
 	</form>
+	<ul>
+		<li th:each="room : ${rooms}">
+			[[${room.roomName}]]
+		</li>
+	</ul>
+	<a href="@{'/rooms/'+${userProfile.user.userid}+'/add'}">ルーム追加</a>
 	<a href="@{'/profile/' + ${userProfile.userId}}">Profile</a>
 </body>
 </html>

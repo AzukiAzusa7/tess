@@ -16,6 +16,7 @@ public class IndexController{
 
 	@RequestMapping("index")
 	String indexForm(User user,Model model){
+		//TODO index‚ÅuserProfile‚Ìî•ñ‚ªæ“¾‚Å‚«‚é‚Ì‚©‚ğŠm”F
 		UserProfile userProfile = userService.findById(user.getUserid()).getUserProfile();
 		model.addAttribute("userProfile",userProfile);
 		return "index";

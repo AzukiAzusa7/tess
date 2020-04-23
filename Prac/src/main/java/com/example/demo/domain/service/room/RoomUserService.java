@@ -7,16 +7,20 @@ public class RoomUserService{
 	private RoomService roomService;
 	@Autowired
 	private UserSerivce userService;
+//	@Autowired
+//	private RoomUserRepository roomUserReposiroty;
 	@Autowired
-	private RoomUserRepository roomUserReposiroty;
+	private RoomRepository roomRepostiory;
+	
+	public void save(List<RoomUser> roomUsers){
+		for(RoomUser ru : roomUsers){
+			roomUserRepository.save(ru);
+		}
+	}
 	/*
-	public void save(RoomUser roomUser,Integer roomId ,String userId){
-		roomUser.setRoom(roomService.findOne(roomId));
-		roomUser.setUser(userService.findOne(userId));
-		roomUserRepository.save(roomUser);
+	public List<Room> findAllByUserId(String userId){
+		return roomRepository.findByUserId(userId);
 	}
 	*/
-	public List<RoomUser> findAllByUserId(String userId){
-		return roomUserRepository.findAllByUserId(userId);
-	}
+	
 }
